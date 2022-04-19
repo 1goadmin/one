@@ -6,14 +6,16 @@ function fj_addstyle(){
 }
  add_action('wp_enqueue_scripts','fj_addstyle');
 
- // !Remove File Versions
- function remove_css_js_version( $src ) {
-  if( strpos( $src, '?ver=' ) )
-      $src = remove_query_arg( 'ver', $src );
-  return $src;
-}
-add_filter( 'style_loader_src', 'remove_css_js_version', 9999 );
-add_filter( 'script_loader_src', 'remove_css_js_version', 9999 );
+//  // !Remove File Versions
+//  function remove_css_js_version( $src ) {
+//   if( strpos( $src, '?ver=' ) )
+//       $src = remove_query_arg( 'ver', $src );
+//   return $src;
+// }
+// add_filter( 'style_loader_src', 'remove_css_js_version', 9999 );
+// add_filter( 'script_loader_src', 'remove_css_js_version', 9999 );
+
+
 
 
 // !Add Scripts
@@ -40,6 +42,17 @@ add_theme_support( 'custom-logo', $defaults );
 }
 add_action( 'after_setup_theme', 'themename_custom_logo_setup' );
 // Support for custom Logo
+//Remove Elementor e-icons Error  Workaround
+
+function remove_default_stylesheet() {
+wp_deregister_style( 'elementor-icons' );
+}
+add_action( 'wp_enqueue_scripts', 'remove_default_stylesheet', '20' );
+
+
+
+
+
 
 
 // Allow SVG
