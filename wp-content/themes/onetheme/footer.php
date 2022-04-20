@@ -60,7 +60,7 @@
 						</div>
 					</li>
 					<li>
-						<div class="contacts ft-contacts solicons" style="margin: .5rem 0 0 3.5rem;">
+						<div class="contacts ft-contacts solicons" style="margin: .9rem 0 0 3rem;">
 							<a href="#" aria-label="facebook profile"><i class="fab fa-facebook-f social-icons"></i></a>
 							<a href="#" aria-label="instagram profile"><i class="fab fa-instagram social-icons"></i></a>
 							<a href="#" aria-label="linkedin profile"><i

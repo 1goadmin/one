@@ -2751,19 +2751,27 @@ footer {
   display: flex;
   flex-direction: column;
   font-family: 'Poppins', sans-serif;
-  line-height: 1.3rem;
+  line-height: 1.33rem;
+  font-weight: 600;
+  letter-spacing: .07rem;
 
 }
 
 .social-icons {
   background-color: #f8f8f8;
   padding: .8em;
+  color: #2f373d;
 }
+
+.social-icons:hover {
+  background-color: var(--primary-hover) ;
+  color: #f8f8f8;
+}
+
 
 
 footer .fa:before,
 .fab:before {
-  color: #007FD0;
   text-align: center;
 }
 
@@ -2785,20 +2793,16 @@ footer .fa:before,
   flex-direction: column;
   list-style: none;
   padding-top: 1.5rem;
-  font-weight: bold;
-  letter-spacing: .1rem;
 
 }
 
 .ft-col a {
   font-size: small;
   text-decoration: none;
-  font-weight: bold;
 }
 
 .ft-col p {
   font-size: small;
-  font-weight: bold;
   color: #f8f8f8;
 }
 
@@ -2806,7 +2810,6 @@ footer .fa:before,
 .ft-col span {
   text-align: center;
   font-size: medium;
-  font-weight: bold;
   color: #f8f8f8;
   padding-bottom: .5rem;
 }
@@ -2814,6 +2817,10 @@ footer .fa:before,
 .ft-col ul li {
   text-decoration: none;
   list-style: none;
+}
+
+.ft-title{
+  margin-right: 1rem;
 }
 
 .ft-title,
@@ -2829,7 +2836,8 @@ footer .fa:before,
 
 .contacts {
   margin: 0 1rem 0 0;
-  gap: 10px;
+  gap: 15px;
+  line-height: 2.4;
 }
 
 
@@ -2933,7 +2941,7 @@ footer .fa:before,
     margin: 0;
     font-size: 11px;
     padding: 1rem;
-    line-height: 2.3rem;
+    line-height: 1rem;
   }
 
   .ft-col ul li {
