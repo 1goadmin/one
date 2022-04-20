@@ -11,7 +11,7 @@
        <h1><a class="title" href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
        <!-- <div class="author"><php the_author(); ?></div> -->
     </div><!--end post header-->
-    <div class="entry clear"> 
+    <div class="entry clear">
        <?php the_content(); ?>
        <!-- <php edit_post_link(); ?> -->
        <?php wp_link_pages(); ?> </div>
