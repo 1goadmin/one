@@ -28,9 +28,9 @@
 				</ul>
 
 			</div>
-			<div class="ft-col"">
+			<div class="ft-col" >
 				<span class=" ft-title">Connect With Us</span>
-				<ul>
+				<ul >
 					<li>
 						<div class="contacts ft-contacts">
 							<a href="#" id="map" aria-label="map"><i class="fa fa-map-marker social-icons"
@@ -53,7 +53,7 @@
 								<a href="#" id="number2" aria-label="contact number2">+63 2 8511 8618</a>
 							</p>
 						</div>
-						<div class="contacts ft-contacts">
+						<div class="contacts ft-contacts" >
 							<a href="#" aria-label="email address" id="email"> <i class="fa fa-envelope social-icons"
 									style="border-radius: 20px; padding: .7em; "></i></a>
 							<a href="#" id="email">customercare@in1go.com.ph</a>

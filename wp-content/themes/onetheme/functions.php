@@ -51,10 +51,6 @@ add_action( 'wp_enqueue_scripts', 'remove_default_stylesheet', '20' );
 
 
 
-
-
-
-
 // Allow SVG
 function cc_mime_types($mimes) {
   $mimes['svg'] = 'image/svg+xml';
