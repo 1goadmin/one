@@ -497,12 +497,13 @@ div.wpforms-container-full .wpforms-form select[multiple] {
 div.wpforms-container-full .wpforms-form input[type=submit],
 div.wpforms-container-full .wpforms-form button[type=submit],
 div.wpforms-container-full .wpforms-form .wpforms-page-button {
-  width:98%;
+  width:99%;
   cursor: pointer;
   color:#fff;
+  font-weight: 600;
   display:block;
-  margin-left: .3rem;
-  background-color: #007FD0;
+  margin-left: .1rem;
+  background-color: #1FA6FF;
   font-size: 1em;
   padding: 10px 15px;
   border-radius: 5px;
@@ -529,11 +530,12 @@ div.wpforms-container-full .wpforms-form button[type=submit]:active,
 div.wpforms-container-full .wpforms-form .wpforms-page-button:hover,
 div.wpforms-container-full .wpforms-form .wpforms-page-button:active,
 div.wpforms-container-full .wpforms-form .wpforms-page-button:focus {
-  width:98%;
+  width:99%;
   cursor: pointer;
   color:#fff;
+  font-weight: 600;
   display:block;
-  margin-left: .3rem;
+  margin-left: .1rem;
   background-color: #007FD0;
   border-radius: 5px;
 }
@@ -541,12 +543,13 @@ div.wpforms-container-full .wpforms-form .wpforms-page-button:focus {
 div.wpforms-container-full .wpforms-form input[type=submit]:disabled,
 div.wpforms-container-full .wpforms-form button[type=submit]:disabled,
 div.wpforms-container-full .wpforms-form .wpforms-page-button:disabled {
-  width:98%;
+  width:99%;
   cursor: pointer;
   color:#fff;
+  font-weight: 600;
   display:block;
-  margin-left: .5rem;
-  background-color: #007FD0;
+  margin-left:.1rem;
+  background-color: #1FA6FF;
   cursor: default;
   opacity: 0.5;
   border-radius: 5px;
