@@ -546,9 +546,9 @@ a:focus {
   --text-decoration: underline;
 }
 
-a:focus {
+/* a:focus {
   --background-color: var(--primary-focus);
-}
+} */
 
 a.secondary {
   --color: var(--secondary);
@@ -2629,6 +2629,11 @@ nav ul li a{
     flex-basis: 95%;
   }
 
+  
+  nav ul .logo a {
+    text-align: left;
+  }
+
   .logo img {
     width: 2.8rem;
   }
@@ -2986,6 +2991,18 @@ footer .fa:before,
   .solicons {
     margin-left: 2.2rem !important;
   }
+
+
+  .card-wrapper 
+  .slider  
+  .col-md-12 
+  .overlay
+  .fact
+  {
+      width: 100% !important;
+      margin: .5rem !important;
+  }
+  
 
 }
 
