@@ -13,6 +13,21 @@ Text Domain: Onedotcom
 
 /* @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@font-face {
+  font-family: "FontAwesome";
+  font-weight: normal;
+  font-style : normal;
+         src : url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.eot?v=4.3.0");
+         src : url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.eot?#iefix&v=4.3.0") format("embedded-opentype"),
+               url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.woff2?v=4.3.0") format("woff2"),
+               url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.woff?v=4.3.0") format("woff"),
+               url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.ttf?v=4.3.0") format("truetype"),
+               url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular") format("svg");
+  }
+  .myClass:before {
+      font-family: FontAwesome;
+      content: "\f024";
+  }
 
 :root {
   --font-family: 'Poppins', sans-serif;
@@ -31,7 +46,7 @@ Text Domain: Onedotcom
   --form-element-spacing-vertical: 0.15rem;
   --form-element-spacing-horizontal: 1rem;
   --form-label-font-weight: var(--font-weight);
-  --transition: 0.2s ease-in-out;
+  --transition: 0.2s ease-in-out;son
 }
 
 html {
@@ -254,9 +269,9 @@ kbd {
   --muted-color: #596b78;
   --muted-border-color: #edf0f3;
   --primary: #f8f8f8;
-  --primary-hover: #f52f1d;
+  --primary-hover: #f45a2a;
   --primary-focus: #f52f1d28;
-  --primary-inverse: #f52f1d;
+  --primary-inverse: #f45a2a;
   --secondary: #eee;
   --secondary-hover: #415462;
   --secondary-focus: rgba(89, 107, 120, 0.125);
@@ -394,8 +409,8 @@ body>footer {
   width: 100%;
   margin-right: auto;
   margin-left: auto;
-  padding-right: 12%;
-  padding-left: 12%;
+  padding-right: 10%;
+  padding-left: 10%;
 }
 
 @media (min-width: 576px) {
@@ -2484,8 +2499,7 @@ nav ul li a{
 
 .scrolled {
   background-color: #ffffff;
-  /*box-shadow: 1px 1px 15px 2px rgba(0, 0, 0, 0.6);
-  */
+  box-shadow: 0 4px 4px .007rem rgba(73, 73, 73, 0.411);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transition: all .3s ease-in-out;
@@ -2543,20 +2557,38 @@ nav ul li a{
 
 .son {
   color: #f8f8f8 !important;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  background-color: #1FA6FF;
- 
+  padding: .10rem .75rem .10rem .75rem;
+  /* outline: .15em solid #f8f8f8; */
+  position:relative;
+  display: block;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  background-color: #0247be;
 }
-.son a{
-  color: #f8f8f8 !important;
+
+
+.son{
+  color: #f8f8f8;
+  background-color: #0247be;
+
 }
+
+
 .son:hover{
-  background-color: #007FD0;
+  background-color: #0247be;
+  outline: .20em solid #F04436;
+
 }
+.son .scrolled{
+  color: #f8f8f8;
+  background-color:inherit;
+  box-shadow: none !important;
+}
+
+
 
 .logo img {
   width: 3.7rem;
@@ -2613,7 +2645,7 @@ nav ul li a{
   nav ul li {
     padding: .3rem 0 .3rem 0;
   }
- 
+
 
   .toggle {
     display: flex;
@@ -2629,7 +2661,6 @@ nav ul li a{
     flex-basis: 95%;
   }
 
-  
   nav ul .logo a {
     text-align: left;
   }
@@ -2736,7 +2767,48 @@ nav ul li a{
     position: absolute;
     margin-top: 1rem;
   }
+
+
+.son i {
+  font-family: FontAwesome;
+  line-height: 1;
+  font-size: 1.1rem;
+  font-weight: 400;
+  position: absolute;
+  content: "\f30b";
+  display: none;
+  top: 34%;
+  right: -14%;
 }
+
+.son:hover i  {
+  display: inline;
+  animation: updown 5s ease-in-out ;
+  -webkit-animation: updown 5s ease-in-out ;
+}
+
+
+@keyframes updown {
+  100% {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+}
+
+  3% {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+}
+}
+
+
+}
+
 
 
 /*!Hero Slider*/
@@ -2750,7 +2822,7 @@ nav ul li a{
 
 footer {
   height: max-content;
-  background-color: #1FA6FF;
+  background-color: #0247be;
   align-items: center;
   padding-top: .5rem !important;
   display: flex;
@@ -2993,16 +3065,16 @@ footer .fa:before,
   }
 
 
-  .card-wrapper 
-  .slider  
-  .col-md-12 
+  .card-wrapper
+  .slider
+  .col-md-12
   .overlay
   .fact
   {
       width: 100% !important;
       margin: .5rem !important;
   }
-  
+
 
 }
 

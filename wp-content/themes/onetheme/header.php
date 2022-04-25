@@ -22,8 +22,8 @@
 <!--  Pre-connects -->
 
 <?php wp_head();?>
-<script src="https://kit.fontawesome.com/a5b3b870d7.js" crossorigin="anonymous"></script>
 
+<script src="https://kit.fontawesome.com/a5b3b870d7.js" crossorigin="anonymous"></script>
 <link href="https://file.myfontastic.com/sK9sqngFqBGZKZUVm4zSJ3/icons.css" rel="stylesheet">
 </head>
 
@@ -43,7 +43,7 @@
 				<li class="item"><a href="#">ECOMMERCE AUTOMATION</a></li>
 				<li class="item"><a href="#">SERVICES</a></li>
 				<li class="item"><a href="#">CONTACT US</a></li>
-				<li class="item son"><a href="#">SELL ONLINE <br> NOW!</a></li>
+				<li class="item son"><a class="sona" href="#">SELL ONLINE <br> NOW! <i class="fa-solid fa-arrow-right-long"></i> </a></li>
 			</ul>
 		</nav>
 	</header>
