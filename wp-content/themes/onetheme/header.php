@@ -32,8 +32,8 @@
 	<header class="container-fluid nav-container" style= "z-index:2">
 		<nav class="container navigation">
 			<ul class="menunav" style="margin-left:.02rem;">
-				<li class="logo" style="text-align:left;"><a  href="<?=bloginfo('url');?>/"><img class="invlogo" src="<?=bloginfo('url');?>/wp-content/themes/onetheme/img/logointl.svg" alt="logo" style="width: 3.3rem;"></a></li>
-				<li class="toggle" style="padding: .3rem .5rem 0  0; flex:1">
+				<li class="logo" style="text-align:left;"><a  href="<?=bloginfo('url');?>/"><img class="invlogo" src="<?=bloginfo('url');?>/wp-content/themes/onetheme/img/logointl.svg" alt="logo" style="width: 3.3rem; position:relative;"></a></li>
+				<li class="toggle" style="padding: .3rem .5rem 0  0; flex:1; position:relative;">
 					<a id="togmenu" rel="nofollow" style="padding:0;" aria-pressed="false">
 						<i id="togmenu" class="fas fa-bars" alt="toggle"></i></a>
 				</li>
