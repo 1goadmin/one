@@ -41,7 +41,7 @@
 			<ul class="menu">
 				<li class="item"><a href="#">COMPANY</a></li>
 				<li class="item"><a href="#">ECOMMERCE AUTOMATION</a></li>
-				<li class="item"><a href="#">SERVICES</a></li>
+				<li class="item"><a href="<?=bloginfo('url');?>/#namedSolutions">SOLUTIONS</a></li>
 				<li class="item"><a href="#">CONTACT US</a></li>
 				<li class="item son"><a class="sona" href="#">SELL ONLINE <br> NOW! <i class="fa-solid fa-arrow-right-long"></i> </a></li>
 			</ul>

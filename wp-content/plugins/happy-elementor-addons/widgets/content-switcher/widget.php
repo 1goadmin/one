@@ -277,6 +277,26 @@ class Content_Switcher extends Base {
 		);
 
 		$this->add_responsive_control(
+			'switch_direction',
+			[
+				'label'     => __('Switch Direction', 'happy-elementor-addons'),
+				'type'      => Controls_Manager::CHOOSE,
+				'options'   => [
+					'horizontal' => [
+						'title' => __('Horizontal', 'happy-elementor-addons'),
+						'icon'  => 'eicon-navigation-horizontal',
+					],
+					'vertical' => [
+						'title' => __('Vertical', 'happy-elementor-addons'),
+						'icon'  => 'eicon-navigation-vertical',
+					],
+				],
+				'default'   => 'horizontal',
+				'toggle'    => false,
+			]
+		);
+
+		$this->add_responsive_control(
 			'switch_align',
 			[
 				'label'     => __('Switch Alignment', 'happy-elementor-addons'),
@@ -436,11 +456,13 @@ class Content_Switcher extends Base {
 				],
 				'default'    => [
 					'unit' => 'px',
-					'size' => 30,
+					'size' => 20,
 				],
 				'selectors'  => [
-					'{{WRAPPER}} .ha-cs-switch.primary' => 'margin-right: {{SIZE}}{{UNIT}};',
-					'{{WRAPPER}} .ha-cs-switch.secondary' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .ha-cs-switch-wrapper.horizontal .ha-cs-switch.primary' => 'margin-right: {{SIZE}}{{UNIT}}; margin-bottom: unset;',
+					'{{WRAPPER}} .ha-cs-switch-wrapper.horizontal .ha-cs-switch.secondary' => 'margin-left: {{SIZE}}{{UNIT}}; margin-top: unset;',
+					'{{WRAPPER}} .ha-cs-switch-wrapper.vertical .ha-cs-switch.primary' => 'margin-bottom: {{SIZE}}{{UNIT}}; margin-right: unset;',
+					'{{WRAPPER}} .ha-cs-switch-wrapper.vertical .ha-cs-switch.secondary' => 'margin-top: {{SIZE}}{{UNIT}}; margin-left: unset;',
 				],
 				'condition'  => [
 					'select_design' => ['round', 'round-2', 'square', 'square-2'],
@@ -1098,7 +1120,7 @@ class Content_Switcher extends Base {
 ?>
 		<div class="ha-content-switcher-wrapper ha-cs-design-<?php echo esc_attr($settings['select_design']); ?>" data-design-type="<?php echo esc_attr($settings['select_design']); ?>">
 			<div class="ha-cs-switch-container">
-				<div class="ha-cs-switch-wrapper">
+				<div class="ha-cs-switch-wrapper <?php echo esc_attr($settings['switch_direction']); ?>">
 					<?php if ($settings['select_design'] == 'button') : ?>
 						<?php foreach ($settings['content_list'] as $i => $item) : ?>
 							<button class="ha-cs-button <?php echo esc_attr(($item['active'] == 'yes') ? 'active' : ''); ?> ha-cs-icon-<?php echo esc_attr($item['icon_align']); ?>" data-content-id="<?php echo esc_attr($item['_id']); ?>">

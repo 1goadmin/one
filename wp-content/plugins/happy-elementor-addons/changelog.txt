@@ -1,3 +1,12 @@
+= 3.5.2 - 26 April 2022 =
+
+- New: Photo Stack widget
+- Tweak: Added vertical and horizontal direction for Content switcher 
+- Tweak: Lower animation speed input option enable for all carousel widgets
+- Fix: Justified Grid row height issue
+- Fix: Gravity form display issue on editor
+- Fix: Mailchimp success message show on corner case
+
 = 3.5.1 - 29 March 2022 =
 
 - Fix: Image Compare widget white space issue
