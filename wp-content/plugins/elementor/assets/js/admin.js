@@ -1,4 +1,4 @@
-/*! elementor - v3.5.6 - 17-03-2022 */
+/*! elementor - v3.6.3 - 12-04-2022 */
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
@@ -5377,7 +5377,6 @@ var _filesUploadHandler = _interopRequireDefault(__webpack_require__(/*! ../edit
         $settingsForm: $('#elementor-settings-form'),
         $settingsTabsWrapper: $('#elementor-settings-tabs-wrapper'),
         $menuGetHelpLink: $('a[href="admin.php?page=go_knowledge_base_site"]'),
-        $menuGoProLink: $('a[href="admin.php?page=go_elementor_pro"]'),
         $reMigrateGlobalsButton: $('.elementor-re-migrate-globals-button')
       };
       elements.$settingsFormPages = elements.$settingsForm.find('.elementor-settings-form-page');
@@ -5613,7 +5612,7 @@ var _filesUploadHandler = _interopRequireDefault(__webpack_require__(/*! ../edit
       this.initTemplatesImport();
       this.initMaintenanceMode();
       this.goToSettingsTabFromHash();
-      this.openLinksInNewTab();
+      this.openGetHelpInNewTab();
       this.addUserAgentClasses();
       this.roleManager.init();
 
@@ -5637,23 +5636,8 @@ var _filesUploadHandler = _interopRequireDefault(__webpack_require__(/*! ../edit
         body.classList.add('e--ua-' + key);
       });
     },
-
-    /**
-     * Open Links in New Tab
-     *
-     * Adds a `target="_blank"` attribute to the Admin Dashboard menu items specified in the `elements` array,
-     * if the elements are found in the DOM. The items in the `elements` array should be jQuery instances.
-     *
-     * @since 3.6.0
-     */
-    openLinksInNewTab: function openLinksInNewTab() {
-      var elements = [this.elements.$menuGetHelpLink, this.elements.$menuGoProLink];
-      elements.forEach(function ($element) {
-        // Only add the attribute if the element is found.
-        if ($element.length) {
-          $element.attr('target', '_blank');
-        }
-      });
+    openGetHelpInNewTab: function openGetHelpInNewTab() {
+      this.elements.$menuGetHelpLink.attr('target', '_blank');
     },
     initTemplatesImport: function initTemplatesImport() {
       if (!elementorCommon.elements.$body.hasClass('post-type-elementor_library')) {

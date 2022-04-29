@@ -1,4 +1,4 @@
-/*! elementor - v3.5.6 - 17-03-2022 */
+/*! elementor - v3.6.3 - 12-04-2022 */
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
@@ -971,7 +971,7 @@ var Container = /*#__PURE__*/function (_ArgsObject) {
   /**
    * Container model.
    *
-   * @type {(Backbone.Model|BaseElementModel)}
+   * @type {Backbone.Model}
    */
 
   /**
@@ -1129,11 +1129,7 @@ var Container = /*#__PURE__*/function (_ArgsObject) {
       this.requireArgumentType('type', 'string', args);
       this.requireArgumentType('id', 'string', args);
       this.requireArgumentInstance('settings', Backbone.Model, args);
-      this.requireArgumentInstance('model', Backbone.Model, args); // Require it, unless it's forced to be `false`.
-
-      if (false !== args.parent) {
-        this.requireArgumentInstance('parent', elementorModules.editor.Container, args);
-      }
+      this.requireArgumentInstance('model', Backbone.Model, args);
     }
     /**
      * Function getGroupRelatedControls().
@@ -1223,27 +1219,6 @@ var Container = /*#__PURE__*/function (_ArgsObject) {
 
         result[controlName] = control;
       });
-      return result;
-    }
-    /**
-     * Function getParentAncestry().
-     *
-     * Recursively run over all parents from current container till the top, and return them as flat array.
-     *
-     * @return {Array.<Container>}
-     */
-
-  }, {
-    key: "getParentAncestry",
-    value: function getParentAncestry() {
-      var result = [];
-      var parent = this;
-
-      while (parent) {
-        result.push(parent);
-        parent = parent.parent;
-      }
-
       return result;
     }
   }, {
@@ -1882,10 +1857,6 @@ __webpack_require__(/*! core-js/modules/es6.array.filter.js */ "../node_modules/
 __webpack_require__(/*! core-js/modules/es6.array.find.js */ "../node_modules/core-js/modules/es6.array.find.js");
 
 var BaseSettingsModel;
-/**
- * @name BaseSettingsModel
- */
-
 BaseSettingsModel = Backbone.Model.extend({
   options: {},
   initialize: function initialize(data, options) {
@@ -2247,10 +2218,6 @@ BaseSettingsModel = Backbone.Model.extend({
     return elementorCommon.helpers.cloneObject(data);
   }
 });
-/**
- * @name BaseSettingsModel
- */
-
 module.exports = BaseSettingsModel;
 
 /***/ }),

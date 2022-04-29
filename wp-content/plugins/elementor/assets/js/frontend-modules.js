@@ -1,4 +1,4 @@
-/*! elementor - v3.5.6 - 17-03-2022 */
+/*! elementor - v3.6.3 - 12-04-2022 */
 (self["webpackChunkelementor"] = self["webpackChunkelementor"] || []).push([["frontend-modules"],{
 
 /***/ "../node_modules/@babel/runtime/helpers/interopRequireDefault.js":
@@ -235,8 +235,7 @@ module.exports = elementorModules.ViewModule.extend({
   findElement: function (selector) {
     var $mainElement = this.$element;
     return $mainElement.find(selector).filter(function () {
-      // Start `closest` from parent since self can be `.elementor-element`.
-      return jQuery(this).parent().closest('.elementor-element').is($mainElement);
+      return jQuery(this).closest('.elementor-element').is($mainElement);
     });
   },
   getUniqueHandlerID: function (cid, $element) {
@@ -296,8 +295,7 @@ module.exports = elementorModules.ViewModule.extend({
             return;
           }
 
-          const propName = Object.keys(changedModel.changed)[0];
-          self.onEditSettingsChange(propName, changedModel.changed[propName]);
+          self.onEditSettingsChange(Object.keys(changedModel.changed)[0]);
         }
       });
     }
@@ -678,14 +676,8 @@ exports["default"] = exports.ForceMethodImplementation = void 0;
 
 // TODO: Wrong location used as `elementorModules.ForceMethodImplementation(); should be` `elementorUtils.forceMethodImplementation()`;
 class ForceMethodImplementation extends Error {
-  constructor(info = {}, args = {}) {
-    super(`${info.isStatic ? 'static ' : ''}${info.fullName}() should be implemented, please provide '${info.functionName || info.fullName}' functionality.`, args); // Allow to pass custom properties to the error.
-
-    if (Object.keys(args).length) {
-      // eslint-disable-next-line no-console
-      console.error(args);
-    }
-
+  constructor(info = {}) {
+    super(`${info.isStatic ? 'static ' : ''}${info.fullName}() should be implemented, please provide '${info.functionName || info.fullName}' functionality.`);
     Error.captureStackTrace(this, ForceMethodImplementation);
   }
 
@@ -693,7 +685,7 @@ class ForceMethodImplementation extends Error {
 
 exports.ForceMethodImplementation = ForceMethodImplementation;
 
-var _default = args => {
+var _default = () => {
   const stack = Error().stack,
         caller = stack.split('\n')[2].trim(),
         callerName = caller.startsWith('at new') ? 'constructor' : caller.split(' ')[1],
@@ -709,7 +701,7 @@ var _default = args => {
     info.isStatic = true;
   }
 
-  throw new ForceMethodImplementation(info, args);
+  throw new ForceMethodImplementation(info);
 };
 
 exports["default"] = _default;
@@ -771,10 +763,6 @@ class InstanceType {
     return result;
   }
 
-  static getInstanceType() {
-    elementorModules.ForceMethodImplementation();
-  }
-
   constructor() {
     // Since anonymous classes sometimes do not get validated by babel, do it manually.
     let target = new.target;
@@ -786,6 +774,10 @@ class InstanceType {
     }
 
     prototypes.reverse().forEach(proto => this instanceof proto);
+  }
+
+  static getInstanceType() {
+    elementorModules.ForceMethodImplementation();
   }
 
 }

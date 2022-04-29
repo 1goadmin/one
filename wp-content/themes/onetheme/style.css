@@ -2899,11 +2899,20 @@ footer .fa:before,
 .ft-title{
   margin-right: 1rem;
 }
-
+/* 
 .ft-title,
 .ft-logo {
   margin-bottom: .7rem;
 
+} */
+
+.ft-title {
+  margin-bottom: 1.7rem;
+}
+
+
+.ft-logo {
+  margin-bottom: 1.5rem;
 }
 
 .number1,
@@ -2913,8 +2922,8 @@ footer .fa:before,
 
 .contacts {
   margin: 0 1rem 0 0;
-  gap: 15px;
-  line-height: 2.4;
+  gap: 28px;
+  line-height: 2.6;
 }
 
 
@@ -2929,7 +2938,7 @@ footer .fa:before,
 
 
 .toc {
-  padding-top: 1rem 0 0 0;
+  padding-top: 1rem;
   font-size: 12px;
   letter-spacing: 1.9px;
   color: #f8f8f8;
@@ -2941,6 +2950,7 @@ footer .fa:before,
 
 .sol-icons {
   margin: .5rem 0 0 2rem;
+ gap : 20px!important;
 }
 
 
@@ -2962,6 +2972,13 @@ footer .fa:before,
     height: max-content;
   }
 
+  .contacts {
+   
+    gap: 28px !important;
+   
+  }
+  
+
 
 }
 
@@ -2972,6 +2989,7 @@ footer .fa:before,
 
 .ft-col p {
   font-size: small;
+
 
 }
 
@@ -2986,6 +3004,15 @@ footer .fa:before,
     padding-bottom: 0;
 
   }
+
+.ft-title {
+  margin-bottom: 1.6rem;
+}
+
+
+.ft-logo {
+  margin-bottom: 1.2rem;
+}
 
 
 }
@@ -3036,7 +3063,11 @@ footer .fa:before,
   .contacts {
     margin: 0.2rem !important;
     gap: 2px !important;
+    line-height: 2.2;
   }
+
+ 
+  
 
   .ft-title,
   .ft-logo {
@@ -3050,32 +3081,76 @@ footer .fa:before,
 
   }
 
-  .footer-company-about {
-
-    margin: 1rem 1rem 0 1rem
-  }
-
-  .footer-company-name {
-    /* margin: 1rem 3rem 0 2.9rem */
-    text-align: center;
-  }
-
-  .solicons {
-    margin-left: 2.2rem !important;
-  }
-
-
-  .card-wrapper
-  .slider
-  .col-md-12
-  .overlay
-  .fact
-  {
-      width: 100% !important;
-      margin: .5rem !important;
-  }
-
 
 }
 
+  .footer-company-about {
+
+    margin: 0 0 0 0.5rem;
+  }
+
+  .footer-company-name {
+    margin: 1.5rem 3rem 0 .5rem;
+    /* text-align: center; */
+  }
+
+  .solicons {
+    margin-left: 3.2rem !important;
+  }
+
+
+  
+@media only screen and (max-width: 768px) and (min-width: 100px) {
+  .card-wrapper
+   .slider 
+   .col-md-12
+   .overlay
+   .fact
+   {
+       width: 100% ;
+       margin: .5rem ;
+   }
+   
+ }
+
 /*!Footer */
+
+
+div.wpforms-container-full .wpforms-form input[type=submit],
+div.wpforms-container-full .wpforms-form button[type=submit],
+div.wpforms-container-full .wpforms-form .wpforms-page-button {
+  width: 99% !important;
+  background-color: #0247be !important;
+  border: 0 !important;
+  color: #f8f8f8 !important;
+}
+
+div.wpforms-container-full .wpforms-form .wpforms-page-button {
+  width: 99% !important;
+  background-color: #0247be !important;
+  border: 0 !important;
+  color: #f8f8f8 !important;
+}
+
+div.wpforms-container-full .wpforms-form input[type=submit]:hover,
+div.wpforms-container-full .wpforms-form input[type=submit]:focus,
+div.wpforms-container-full .wpforms-form input[type=submit]:active,
+div.wpforms-container-full .wpforms-form button[type=submit]:hover,
+div.wpforms-container-full .wpforms-form button[type=submit]:focus,
+div.wpforms-container-full .wpforms-form button[type=submit]:active,
+div.wpforms-container-full .wpforms-form .wpforms-page-button:hover,
+div.wpforms-container-full .wpforms-form .wpforms-page-button:active,
+div.wpforms-container-full .wpforms-form .wpforms-page-button:focus {
+  width: 99% !important;
+  background-color: #0247be !important;
+  border: 0 !important;
+  color: #f8f8f8 !important;
+}
+div.wpforms-container-full .wpforms-form input[type=submit]:disabled,
+div.wpforms-container-full .wpforms-form button[type=submit]:disabled,
+div.wpforms-container-full .wpforms-form .wpforms-page-button:disabled {
+  width: 99% !important;
+  background-color: #0247be !important;
+  border: 0 !important;
+  color: #f8f8f8 !important;
+}

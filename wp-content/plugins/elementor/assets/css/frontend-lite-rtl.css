@@ -1,4 +1,4 @@
-/*! elementor - v3.5.6 - 17-03-2022 */
+/*! elementor - v3.6.3 - 12-04-2022 */
 .dialog-widget-content {
   background-color: #fff;
   position: absolute;
@@ -1681,13 +1681,16 @@ ul.elementor-icon-list-items.elementor-inline-items {
   --min-height: initial;
   --height: auto;
   --text-align: initial;
-  --margin: 0;
+  --margin-top: 0;
+  --margin-right: 0;
+  --margin-bottom: 0;
+  --margin-left: 0;
   --padding-top: var( --container-default-padding, 0px );
   --padding-right: var( --container-default-padding, 0px );
   --padding-bottom: var( --container-default-padding, 0px );
   --padding-left: var( --container-default-padding, 0px );
   --position: relative;
-  --z-index: 0;
+  --z-index: revert;
   --overflow: visible;
   --transition: 0;
   --gap: var( --widgets-spacing, 20px );
@@ -1710,7 +1713,7 @@ ul.elementor-icon-list-items.elementor-inline-items {
   min-height: var(--min-height);
   height: var(--height);
   border-radius: var(--border-radius);
-  margin: var(--margin);
+  margin: var(--margin-top) var(--margin-right) var(--margin-bottom) var(--margin-left);
   padding-left: calc( ( 100% - var( --content-width ) ) / 2 + var( --padding-left ));
   padding-right: calc( ( 100% - var( --content-width ) ) / 2 + var( --padding-right ));
   padding-top: var(--padding-top);
@@ -1721,8 +1724,8 @@ ul.elementor-icon-list-items.elementor-inline-items {
   -o-transition: var(--transition);
   transition: var(--transition); }
   :is(.elementor-section-wrap, [data-elementor-id]) > .e-container {
-    margin-right: auto;
-    margin-left: auto; }
+    --margin-right: auto;
+    --margin-left: auto; }
   .e-container .elementor-empty-view {
     position: relative;
     width: 100%;
@@ -1797,9 +1800,15 @@ ul.elementor-icon-list-items.elementor-inline-items {
     -o-transition: var(--overlay-transition);
     transition: var(--overlay-transition);
     border-radius: var(--border-radius); }
-  .e-container .elementor-widget-video, .e-container .elementor-widget-google_maps {
-    -ms-flex-preferred-size: 100%;
-        flex-basis: 100%; }
+  .e-container .elementor-widget {
+    min-width: 0; }
+    .e-container .elementor-widget-video, .e-container .elementor-widget-google_maps {
+      -ms-flex-preferred-size: 100%;
+          flex-basis: 100%; }
+    .e-container .elementor-widget.e-widget-swiper {
+      max-width: 100%;
+      -ms-flex-preferred-size: 100%;
+          flex-basis: 100%; }
   .e-container > .e-container > .elementor-element-overlay .elementor-editor-element-setting, .elementor-widget .e-container > .elementor-element-overlay .elementor-editor-element-setting {
     position: relative;
     background-color: #556068; }

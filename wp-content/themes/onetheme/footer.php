@@ -8,9 +8,9 @@
 					</li>
 					<li>
 						<p class="footer-company-about">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit.
-							rerum et illum delectus similique laudantium quaerat qui amet,
-							voluptate magnam maxime unde odio minima numquam corrupti, eum,
+						1.com is your end-to-end ecommerce solution provider.  Whether you are just starting your
+						online store, expanding it to breach new channels, or putting up a customer support facility, we provide
+						you the right tools and technology that fit your needs and grow your  business.
 						</p>
 					</li>
 					<li>
@@ -19,7 +19,7 @@
 				</ul>
 			</div>
 			<div class="ft-col">
-				<span class="ft-title">What We Do</span>
+				<span class="ft-title" style="display:block; border-bottom: 2px solid #fff; padding: 0 0 .2rem 0; margin: 0 7rem 1.5rem 3rem;">What We Do</span>
 				<ul class="contacts" style="margin-left: 2.9rem;">
 					<li><a href="/onedotcom/#about-us" aria-label="about">Company</a></li>
 					<li><a href="/onedotcom/ecomm-auto/" aria-label="ecommerce automation">Ecommerce Automation</a></li>
@@ -29,11 +29,11 @@
 
 			</div>
 			<div class="ft-col" >
-				<span class=" ft-title">Connect With Us</span>
+				<span class=" ft-title" style="display:block; border-bottom: 2px solid #fff; padding: 0 0 .2rem 0; margin: 0 6rem 1.5rem 3rem;">Connect With Us</span>
 				<ul >
 					<li>
 						<div class="contacts ft-contacts">
-							<a href="#" id="map" aria-label="map"><i class="fa fa-map-marker social-icons"
+							<a href="#" id="map" aria-label="map" style="margin-top:.4rem;"><i class="fa fa-map-marker social-icons"
 									style="border-radius: 20px; text-align: center;"></i></a>
 							<a href="#" id="address" aria-label="address">Las Pinas
 								Cargo Complex
@@ -45,7 +45,7 @@
 					</li>
 					<li>
 						<div class="contacts ft-contacts">
-							<a href="#" aria-label="phone"> <i class="fa fa-phone social-icons"
+							<a href="#" aria-label="phone" style="margin-top:.5rem;"> <i class="fa fa-phone social-icons"
 									style="border-radius: 20px; padding: .7em"></i></a>
 							<p>
 								<a href="#" id="number1" aria-label="contact number1">+63 2 8814 3209</a>
@@ -60,7 +60,7 @@
 						</div>
 					</li>
 					<li>
-						<div class="contacts ft-contacts solicons" style="margin: .9rem 0 0 3rem;">
+						<div class="contacts ft-contacts solicons" style="margin: .9rem 0 0 3rem; gap : 20px!important;">
 							<a href="#" aria-label="facebook profile"><i class="fab fa-facebook-f social-icons"></i></a>
 							<a href="#" aria-label="instagram profile"><i class="fab fa-instagram social-icons"></i></a>
 							<a href="#" aria-label="linkedin profile"><i

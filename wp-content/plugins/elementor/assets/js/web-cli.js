@@ -1,4 +1,4 @@
-/*! elementor - v3.5.6 - 17-03-2022 */
+/*! elementor - v3.6.3 - 12-04-2022 */
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
@@ -89,16 +89,6 @@ module.exports = __webpack_require__(/*! core-js/library/fn/object/define-proper
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 module.exports = __webpack_require__(/*! core-js/library/fn/object/entries */ "../node_modules/core-js/library/fn/object/entries.js");
-
-/***/ }),
-
-/***/ "../node_modules/@babel/runtime-corejs2/core-js/object/freeze.js":
-/*!***********************************************************************!*\
-  !*** ../node_modules/@babel/runtime-corejs2/core-js/object/freeze.js ***!
-  \***********************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-module.exports = __webpack_require__(/*! core-js/library/fn/object/freeze */ "../node_modules/core-js/library/fn/object/freeze.js");
 
 /***/ }),
 
@@ -3462,29 +3452,15 @@ _Object$defineProperty(exports, "__esModule", {
 
 exports["default"] = void 0;
 
-var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ "../node_modules/@babel/runtime/regenerator/index.js"));
-
 __webpack_require__(/*! core-js/modules/es6.object.to-string.js */ "../node_modules/core-js/modules/es6.object.to-string.js");
 
 __webpack_require__(/*! core-js/modules/es6.array.iterator.js */ "../node_modules/core-js/modules/es6.array.iterator.js");
 
 __webpack_require__(/*! core-js/modules/web.dom.iterable.js */ "../node_modules/core-js/modules/web.dom.iterable.js");
 
-__webpack_require__(/*! core-js/modules/es6.array.filter.js */ "../node_modules/core-js/modules/es6.array.filter.js");
-
-__webpack_require__(/*! core-js/modules/es6.string.iterator.js */ "../node_modules/core-js/modules/es6.string.iterator.js");
-
 var _keys = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/core-js/object/keys */ "../node_modules/@babel/runtime-corejs2/core-js/object/keys.js"));
 
 var _values = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/core-js/object/values */ "../node_modules/@babel/runtime-corejs2/core-js/object/values.js"));
-
-var _promise = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/core-js/promise */ "../node_modules/@babel/runtime-corejs2/core-js/promise.js"));
-
-var _isArray = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/core-js/array/is-array */ "../node_modules/@babel/runtime-corejs2/core-js/array/is-array.js"));
-
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/asyncToGenerator */ "../node_modules/@babel/runtime-corejs2/helpers/asyncToGenerator.js"));
-
-var _typeof2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/typeof */ "../node_modules/@babel/runtime-corejs2/helpers/typeof.js"));
 
 var _classCallCheck2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/classCallCheck */ "../node_modules/@babel/runtime-corejs2/helpers/classCallCheck.js"));
 
@@ -3494,11 +3470,7 @@ var _inherits2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-c
 
 var _createSuper2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/createSuper */ "../node_modules/@babel/runtime-corejs2/helpers/createSuper.js"));
 
-var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/defineProperty */ "../node_modules/@babel/runtime-corejs2/helpers/defineProperty.js"));
-
 var _commands = _interopRequireDefault(__webpack_require__(/*! ./backwards-compatibility/commands */ "../modules/web-cli/assets/js/core/backwards-compatibility/commands.js"));
-
-var _commandBase = _interopRequireDefault(__webpack_require__(/*! ../modules/command-base */ "../modules/web-cli/assets/js/modules/command-base.js"));
 
 var Commands = /*#__PURE__*/function (_CommandsBackwardsCom) {
   (0, _inherits2.default)(Commands, _CommandsBackwardsCom);
@@ -3527,9 +3499,11 @@ var Commands = /*#__PURE__*/function (_CommandsBackwardsCom) {
     _this.currentTrace = [];
     _this.commands = {};
     _this.components = {};
+    _this.classes = {};
     return _this;
   }
   /**
+   * @param id
    * @returns {CommandBase}
    */
 
@@ -3537,7 +3511,7 @@ var Commands = /*#__PURE__*/function (_CommandsBackwardsCom) {
   (0, _createClass2.default)(Commands, [{
     key: "getCommandClass",
     value: function getCommandClass(id) {
-      return this.commands[id];
+      return this.classes[id];
     }
     /**
      * Function getAll().
@@ -3783,46 +3757,22 @@ var Commands = /*#__PURE__*/function (_CommandsBackwardsCom) {
     /**
      * Function beforeRun().
      *
-     * Responsible to add current command to trace and trigger 'run:before' event.
-     * Run before command.
-     *
      * @param {string} command
-     * @param {{}} args
+     * @param {} args
+     *
+     * @returns {boolean} dependency result
      */
 
   }, {
     key: "beforeRun",
     value: function beforeRun(command) {
       var args = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      var component = this.getComponent(command),
-          container = component.getRootContainer();
-      this.addCurrentTrace(container, command, args);
-
-      if (args.onBefore) {
-        args.onBefore.apply(component, [args]);
-      }
-
-      this.trigger('run:before', component, command, args);
-    }
-    /**
-     * Function validateRun().
-     *
-     * Responsible to validate if the run is even possible.
-     * Runs immediately after entering `run()`.
-     *
-     * @param {string} command
-     * @param {{}} args
-     */
-
-  }, {
-    key: "validateRun",
-    value: function validateRun(command) {
-      var args = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
       if (!this.commands[command]) {
         this.error("`".concat(command, "` not found."));
       }
 
+      this.currentTrace.push(command);
       return this.getComponent(command).dependency(command, args);
     }
     /**
@@ -3841,254 +3791,34 @@ var Commands = /*#__PURE__*/function (_CommandsBackwardsCom) {
     value: function run(command) {
       var args = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-      if (!this.validateRun(command, args)) {
+      if (!this.beforeRun(command, args)) {
         return false;
       }
 
-      this.beforeRun(command, args); // Get command class or callback.
+      var component = this.getComponent(command),
+          container = component.getRootContainer();
+      this.current[container] = command;
+      this.currentArgs[container] = args;
+      this.trigger('run:before', component, command, args);
 
-      var context = this.commands[command]; // Is it command-base based class?
-
-      if (context.getInstanceType) {
-        context = new context(args);
+      if (args.onBefore) {
+        args.onBefore.apply(component, [args]);
       }
 
-      var currentComponent = this.getComponent(command); // Is simple callback? (e.g.  a route)
-
-      if (!(context instanceof _commandBase.default)) {
-        var results = context.apply(currentComponent, [args]);
-        this.afterRun(command, args, results);
-        return results;
-      }
-
-      if (!this.validateInstanceScope(context, currentComponent, command)) {
-        return this.removeCurrentTrace(currentComponent);
-      }
-
-      return this.runInstance(context);
-    }
-    /**
-     * Function runInstance().
-     *
-     * @param {CommandBase} instance
-     *
-     * @returns {boolean|Promise<*>}
-     */
-
-  }, {
-    key: "runInstance",
-    value: function runInstance(instance) {
-      var results = null; // For UI Hooks.
-
-      instance.onBeforeRun(instance.args);
-
-      try {
-        // For data hooks.
-        instance.onBeforeApply(instance.args);
-        results = instance.run();
-      } catch (e) {
-        this.catchApply(e, instance);
-
-        if (e instanceof $e.modules.HookBreak) {
-          this.removeCurrentTrace(instance.component);
-          return false;
-        }
-      }
-
-      return this.applyRunAfter(instance, results);
-    }
-    /**
-     * Function applyRunAfter().
-     *
-     * Responsible for applying everything that need to be run after each command runs.
-     * Called on run() after runInstance(), to manipulate results & apply 'after' hooks.
-     *
-     * @param {CommandBase} instance
-     * @param {*} result
-     *
-     * @returns {Promise<*>|*}
-     */
-
-  }, {
-    key: "applyRunAfter",
-    value: function applyRunAfter(instance, result) {
-      var _this3 = this;
-
-      // TODO: Temp code determine if it's a jQuery deferred object.
-      if (result && 'object' === (0, _typeof2.default)(result) && result.promise && result.then && result.fail) {
-        var handleJQueryDeferred = function handleJQueryDeferred(_result) {
-          _result.fail(function (e) {
-            _this3.catchApply(e, instance);
-
-            _this3.afterRun(instance.command, instance.args, e);
-          });
-
-          _result.done(function (__result) {
-            _this3.applyRunAfterSync(instance, __result);
-          });
-
-          return _result;
-        };
-
-        return handleJQueryDeferred(result);
-      } else if (result instanceof _promise.default) {
-        return this.applyRunAfterAsync(instance, result);
-      }
-
-      this.applyRunAfterSync(instance, result);
-      return result;
-    }
-    /**
-     * Function applyRunAfterSync().
-     *
-     * Responsible to handle simple(synchronous) 'run after' behavior.
-     * Called on applyRunAfterSync() after runInstance(), to handle results.
-     *
-     * @param {CommandBase} instance
-     * @param {*} result
-     */
-
-  }, {
-    key: "applyRunAfterSync",
-    value: function applyRunAfterSync(instance, result) {
-      // Run Data hooks.
-      instance.onAfterApply(instance.args, result); // For UI hooks.
-
-      instance.onAfterRun(instance.args, result);
-      this.afterRun(instance.command, instance.args, result);
-    }
-    /**
-     * Function applyRunAfterAsync().
-     *
-     * Await for promise result.
-     * Called on applyRunAfter() after runInstance().
-     *
-     * @param {CommandBase} instance
-     * @param {*} result
-     */
-
-  }, {
-    key: "applyRunAfterAsync",
-    value: function applyRunAfterAsync(instance, result) {
-      var _this4 = this;
-
-      // Override initial result ( promise ) to await onAfter promises, first!.
-      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
-        return _regenerator.default.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return result.catch(function (e) {
-                  _this4.catchApply(e, instance);
-
-                  _this4.afterRun(instance.command, instance.args, e);
-                });
-
-              case 2:
-                _context.next = 4;
-                return result.then(function (_result) {
-                  return _this4.applyRunAfterAsyncResult(instance, _result);
-                });
-
-              case 4:
-                return _context.abrupt("return", result);
-
-              case 5:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }))();
-    }
-    /**
-     * Function applyRunAfterAsyncResult().
-     *
-     * Responsible to await all promises results.
-     * Called on applyRunAfterAsync() after runInstance(), to handle async results.
-     * Awaits all the promises, before releasing the command.
-     *
-     * @param {CommandBase} instance
-     * @param {*} result
-     */
-
-  }, {
-    key: "applyRunAfterAsyncResult",
-    value: function () {
-      var _applyRunAfterAsyncResult = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2(instance, result) {
-        var results, promises;
-        return _regenerator.default.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                // Run Data hooks.
-                results = instance.onAfterApply(instance.args, result), promises = (0, _isArray.default)(results) ? results.flat().filter(function (filtered) {
-                  return filtered instanceof _promise.default;
-                }) : [];
-
-                if (!promises.length) {
-                  _context2.next = 4;
-                  break;
-                }
-
-                _context2.next = 4;
-                return _promise.default.all(promises);
-
-              case 4:
-                // For UI hooks.
-                instance.onAfterRun(instance.args, result);
-                this.afterRun(instance.command, instance.args, result);
-
-              case 6:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2, this);
-      }));
-
-      function applyRunAfterAsyncResult(_x, _x2) {
-        return _applyRunAfterAsyncResult.apply(this, arguments);
-      }
-
-      return applyRunAfterAsyncResult;
-    }()
-    /**
-     * Function afterRun().
-     *
-     * Responsible to to clear command from trace, and run 'run:after' event.
-     * Method fired after the command runs.
-     *
-     * @param {string} command
-     * @param {{}} args
-     * @param {*} results
-     */
-
-  }, {
-    key: "afterRun",
-    value: function afterRun(command, args) {
-      var results = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : undefined;
-      var component = this.getComponent(command);
+      var results = this.commands[command].apply(component, [args]); // TODO: Consider add results to `$e.devTools`.
 
       if (args.onAfter) {
         args.onAfter.apply(component, [args, results]);
       }
 
       this.trigger('run:after', component, command, args, results);
-      this.removeCurrentTrace(component);
-    }
-    /**
-     * @param {Error} e
-     * @param {CommandBase} instance
-     */
+      this.afterRun(command);
 
-  }, {
-    key: "catchApply",
-    value: function catchApply(e, instance) {
-      instance.onCatchApply(e); // TODO: Should be part of $e.API.
+      if (false === args.returnValue) {
+        return true;
+      }
 
-      elementorCommon.helpers.consoleError(e);
+      return results;
     }
     /**
      * Function runShortcut().
@@ -4108,48 +3838,20 @@ var Commands = /*#__PURE__*/function (_CommandsBackwardsCom) {
     value: function runShortcut(command, event) {
       return this.run(command, event);
     }
+    /**
+     * Function afterRun().
+     *
+     * Method fired after the command runs.
+     *
+     * @param {string} command
+     */
+
   }, {
-    key: "validateInstanceScope",
-    value: function validateInstanceScope(instance, currentComponent, command) {
-      if (!(instance instanceof _commandBase.default)) {
-        this.error("invalid instance, command: '".concat(command, "' "));
-      } // In case of different scope.
-
-
-      if (currentComponent !== instance.component) {
-        if ($e.devTools) {
-          $e.devTools.log.warn("Command: '".concat(command, "' registerArgs.component: '").concat(instance.component.getNamespace(), "' while current component is: '").concat(currentComponent.getNamespace(), "'"));
-        }
-
-        return false;
-      }
-
-      return true;
-    }
-  }, {
-    key: "addCurrentTrace",
-    value: function addCurrentTrace(container, command, args) {
-      this.currentTrace.push(command);
-      Commands.trace.push(command);
-      this.attachCurrent(container, command, args);
-    }
-  }, {
-    key: "removeCurrentTrace",
-    value: function removeCurrentTrace(currentComponent) {
-      var container = currentComponent.getRootContainer();
+    key: "afterRun",
+    value: function afterRun(command) {
+      var component = this.getComponent(command),
+          container = component.getRootContainer();
       this.currentTrace.pop();
-      Commands.trace.pop();
-      this.detachCurrent(container);
-    }
-  }, {
-    key: "attachCurrent",
-    value: function attachCurrent(container, command, args) {
-      this.current[container] = command;
-      this.currentArgs[container] = args;
-    }
-  }, {
-    key: "detachCurrent",
-    value: function detachCurrent(container) {
       delete this.current[container];
       delete this.currentArgs[container];
     }
@@ -4173,7 +3875,6 @@ var Commands = /*#__PURE__*/function (_CommandsBackwardsCom) {
 }(_commands.default);
 
 exports["default"] = Commands;
-(0, _defineProperty2.default)(Commands, "trace", []);
 
 /***/ }),
 
@@ -5098,7 +4799,7 @@ var Data = /*#__PURE__*/function (_Commands) {
     value: function register(component, command, callback) {
       (0, _get2.default)((0, _getPrototypeOf2.default)(Data.prototype), "register", this).call(this, component, command, callback);
       var fullCommandName = component.getNamespace() + '/' + command,
-          commandInstance = $e.data.getCommandClass(fullCommandName),
+          commandInstance = $e.commands.getCommandClass(fullCommandName),
           format = commandInstance !== null && commandInstance !== void 0 && commandInstance.getEndpointFormat ? commandInstance.getEndpointFormat() : false;
 
       if (format) {
@@ -7144,7 +6845,8 @@ var Routes = /*#__PURE__*/function (_Commands) {
         return;
       }
 
-      this.detachCurrent(container);
+      delete this.current[container];
+      delete this.currentArgs[container];
       this.getComponent(route).onCloseRoute(route);
     }
   }, {
@@ -7176,13 +6878,9 @@ var Routes = /*#__PURE__*/function (_Commands) {
       return true;
     }
   }, {
-    key: "validateRun",
-    value: function validateRun(route) {
-      var _this$getComponent;
-
-      var args = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      if (!(0, _get2.default)((0, _getPrototypeOf2.default)(Routes.prototype), "validateRun", this).call(this, route, args)) {
+    key: "beforeRun",
+    value: function beforeRun(route, args) {
+      if (!(0, _get2.default)((0, _getPrototypeOf2.default)(Routes.prototype), "beforeRun", this).call(this, route, args)) {
         return false;
       }
 
@@ -7190,30 +6888,6 @@ var Routes = /*#__PURE__*/function (_Commands) {
         return false;
       }
 
-      return (_this$getComponent = this.getComponent(route)) === null || _this$getComponent === void 0 ? void 0 : _this$getComponent.isOpen;
-    }
-  }, {
-    key: "run",
-    value: function run(route) {
-      var args = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      if (!this.validateRun(route, args)) {
-        var component = this.getComponent(route);
-
-        if (!component.isOpen || args.reOpen) {
-          component.isOpen = component.open(args);
-        }
-
-        if (!component.isOpen) {
-          return false;
-        }
-      }
-
-      return (0, _get2.default)((0, _getPrototypeOf2.default)(Routes.prototype), "run", this).call(this, route, args);
-    }
-  }, {
-    key: "beforeRun",
-    value: function beforeRun(route, args) {
       var component = this.getComponent(route),
           container = component.getRootContainer(),
           oldRoute = this.current[container];
@@ -7222,12 +6896,11 @@ var Routes = /*#__PURE__*/function (_Commands) {
         this.getComponent(oldRoute).onCloseRoute(oldRoute);
       }
 
-      if (args.onBefore) {
-        args.onBefore.apply(component, [args]);
+      if (!component.isOpen || args.reOpen) {
+        component.isOpen = component.open(args);
       }
 
-      this.trigger('run:before', component, route, args);
-      this.attachCurrent(container, route, args);
+      return component.isOpen;
     }
   }, {
     key: "to",
@@ -7268,15 +6941,7 @@ var Routes = /*#__PURE__*/function (_Commands) {
   }, {
     key: "afterRun",
     value: function afterRun(route, args) {
-      var results = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : undefined;
-      var component = this.getComponent(route);
-      component.onRoute(route, args);
-
-      if (args.onAfter) {
-        args.onAfter.apply(component, [args]);
-      }
-
-      this.trigger('run:after', component, route, args, results);
+      this.getComponent(route).onRoute(route, args);
     }
   }, {
     key: "is",
@@ -8313,91 +7978,95 @@ _Object$defineProperty(exports, "__esModule", {
 
 exports["default"] = void 0;
 
+var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ "../node_modules/@babel/runtime/regenerator/index.js"));
+
+__webpack_require__(/*! core-js/modules/es6.array.filter.js */ "../node_modules/core-js/modules/es6.array.filter.js");
+
+__webpack_require__(/*! core-js/modules/es6.string.iterator.js */ "../node_modules/core-js/modules/es6.string.iterator.js");
+
+__webpack_require__(/*! core-js/modules/es6.object.to-string.js */ "../node_modules/core-js/modules/es6.object.to-string.js");
+
+__webpack_require__(/*! core-js/modules/es6.array.iterator.js */ "../node_modules/core-js/modules/es6.array.iterator.js");
+
+__webpack_require__(/*! core-js/modules/web.dom.iterable.js */ "../node_modules/core-js/modules/web.dom.iterable.js");
+
+var _isArray = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/core-js/array/is-array */ "../node_modules/@babel/runtime-corejs2/core-js/array/is-array.js"));
+
+var _promise = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/core-js/promise */ "../node_modules/@babel/runtime-corejs2/core-js/promise.js"));
+
+var _typeof2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/typeof */ "../node_modules/@babel/runtime-corejs2/helpers/typeof.js"));
+
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/asyncToGenerator */ "../node_modules/@babel/runtime-corejs2/helpers/asyncToGenerator.js"));
+
 var _classCallCheck2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/classCallCheck */ "../node_modules/@babel/runtime-corejs2/helpers/classCallCheck.js"));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/createClass */ "../node_modules/@babel/runtime-corejs2/helpers/createClass.js"));
+
+var _assertThisInitialized2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/assertThisInitialized */ "../node_modules/@babel/runtime-corejs2/helpers/assertThisInitialized.js"));
 
 var _inherits2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/inherits */ "../node_modules/@babel/runtime-corejs2/helpers/inherits.js"));
 
 var _createSuper2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/createSuper */ "../node_modules/@babel/runtime-corejs2/helpers/createSuper.js"));
 
-var _commandInfra = _interopRequireDefault(__webpack_require__(/*! ./command-infra */ "../modules/web-cli/assets/js/modules/command-infra.js"));
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/defineProperty */ "../node_modules/@babel/runtime-corejs2/helpers/defineProperty.js"));
 
-/**
- * @name $e.modules.CommandBase
- */
-var CommandBase = /*#__PURE__*/function (_CommandInfra) {
-  (0, _inherits2.default)(CommandBase, _CommandInfra);
+var _argsObject = _interopRequireDefault(__webpack_require__(/*! elementor-assets-js/modules/imports/args-object */ "../assets/dev/js/modules/imports/args-object.js"));
+
+var _helpers = _interopRequireDefault(__webpack_require__(/*! elementor-api/utils/helpers */ "../modules/web-cli/assets/js/utils/helpers.js"));
+
+var _forceMethodImplementation = _interopRequireDefault(__webpack_require__(/*! ../utils/force-method-implementation */ "../modules/web-cli/assets/js/utils/force-method-implementation.js"));
+
+var CommandBase = /*#__PURE__*/function (_ArgsObject) {
+  (0, _inherits2.default)(CommandBase, _ArgsObject);
 
   var _super = (0, _createSuper2.default)(CommandBase);
 
-  function CommandBase() {
+  /**
+   * Function constructor().
+   *
+   * Create Commands Base.
+   *
+   * @param [args={}]
+   * @param [commandsAPI={}]
+   */
+  function CommandBase(args) {
+    var _this;
+
+    var commandsAPI = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : $e.commands;
     (0, _classCallCheck2.default)(this, CommandBase);
-    return _super.apply(this, arguments);
+    _this = _super.call(this, args); // Acknowledge self about which command it run.
+
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "component", void 0);
+    _this.currentCommand = commandsAPI.getCurrentLast(); // Assign instance of current component.
+
+    _this.component = commandsAPI.getComponent(_this.currentCommand); // Who ever need do something before without `super` the constructor can use `initialize` method.
+
+    _this.initialize(args); // Refresh args, maybe the changed via `initialize`.
+
+
+    args = _this.args; // Validate args before run.
+
+    _this.validateArgs(args);
+
+    return _this;
   }
+  /**
+   * Function requireContainer().
+   *
+   * Validate `arg.container` & `arg.containers`.
+   *
+   * @param {{}} args
+   *
+   * @throws {Error}
+   */
+
 
   (0, _createClass2.default)(CommandBase, [{
-    key: "onBeforeRun",
-    value: function onBeforeRun() {
-      var args = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-      $e.hooks.runUIBefore(this.command, args);
-    }
-  }, {
-    key: "onAfterRun",
-    value: function onAfterRun() {
-      var args = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-      var result = arguments.length > 1 ? arguments[1] : undefined;
-      $e.hooks.runUIAfter(this.command, args, result);
-    }
-  }, {
-    key: "onBeforeApply",
-    value: function onBeforeApply() {
-      var args = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-      $e.hooks.runDataDependency(this.command, args);
-    }
-  }, {
-    key: "onAfterApply",
-    value: function onAfterApply() {
-      var args = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-      var result = arguments.length > 1 ? arguments[1] : undefined;
-      $e.hooks.runDataAfter(this.command, args, result);
-    }
-  }, {
-    key: "onCatchApply",
-    value: function onCatchApply(e) {
-      this.runCatchHooks(e);
-    }
-    /**
-     * Run all the catch hooks.
-     *
-     * @param {Error} e
-     */
-
-  }, {
-    key: "runCatchHooks",
-    value: function runCatchHooks(e) {
-      $e.hooks.runDataCatch(this.command, this.args, e);
-      $e.hooks.runUICatch(this.command, this.args, e);
-    }
-    /**
-     * TODO - Remove - Backwards compatibility.
-     *
-     * Function requireContainer().
-     *
-     * Validate `arg.container` & `arg.containers`.
-     *
-     * @param {{}} args
-     *
-     * @throws {Error}
-     */
-
-  }, {
     key: "requireContainer",
     value: function requireContainer() {
-      var _this = this;
+      var _this2 = this;
 
       var args = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.args;
-      elementorCommon.helpers.softDeprecated('requireContainer', '3.6.0', 'Extend `$e.modules.editor.CommandContainerBase` or `$e.modules.editor.CommandContainerInternalBase`');
 
       if (!args.container && !args.containers) {
         throw Error('container or containers are required.');
@@ -8409,95 +8078,314 @@ var CommandBase = /*#__PURE__*/function (_CommandInfra) {
 
       var containers = args.containers || [args.container];
       containers.forEach(function (container) {
-        _this.requireArgumentInstance('container', elementorModules.editor.Container, {
+        _this2.requireArgumentInstance('container', elementorModules.editor.Container, {
           container: container
         });
       });
+    }
+    /**
+     * Function initialize().
+     *
+     * Initialize command, called after construction.
+     *
+     * @param [args={}]
+     */
+
+  }, {
+    key: "initialize",
+    value: function initialize() {
+      var args = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    } // eslint-disable-line no-unused-vars
+
+    /**
+     * Function validateArgs().
+     *
+     * Validate command arguments.
+     *
+     * @param [args={}]
+     */
+
+  }, {
+    key: "validateArgs",
+    value: function validateArgs() {
+      var args = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    } // eslint-disable-line no-unused-vars
+
+    /**
+     * Function isDataChanged().
+     *
+     * Whether the editor needs to set change flag on/off.
+     *
+     * @returns {boolean}
+     */
+
+  }, {
+    key: "isDataChanged",
+    value: function isDataChanged() {
+      return false;
+    }
+    /**
+     * Function apply().
+     *
+     * Do the actual command.
+     *
+     * @param [args={}]
+     *
+     * @returns {*}
+     */
+
+  }, {
+    key: "apply",
+    value: function apply() {
+      var args = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      // eslint-disable-line no-unused-vars
+      (0, _forceMethodImplementation.default)();
+    }
+    /**
+     * Function run().
+     *
+     * Run command with history & hooks.
+     *
+     * @returns {*}
+     */
+
+  }, {
+    key: "run",
+    value: function run() {
+      var result; // For UI Hooks.
+
+      this.onBeforeRun(this.args);
+
+      try {
+        // For Data hooks.
+        this.onBeforeApply(this.args);
+        result = this.apply(this.args);
+      } catch (e) {
+        this.onCatchApply(e); // Catch 'Hook-Break' that comes from hooks base.
+
+        if (e instanceof $e.modules.HookBreak) {
+          // Bypass.
+          return false;
+        }
+      }
+
+      return this.runAfter(result);
+    }
+  }, {
+    key: "runAfter",
+    value: function runAfter(result) {
+      var _this3 = this;
+
+      var onAfter = function onAfter(_result) {
+        // Run Data hooks.
+        _this3.onAfterApply(_this3.args, _result); // TODO: Create Command-Base for Command-Document and apply it on after.
+
+
+        if (_this3.isDataChanged()) {
+          $e.internal('document/save/set-is-modified', {
+            status: true
+          });
+        } // For UI hooks.
+
+
+        _this3.onAfterRun(_this3.args, _result);
+      },
+          asyncOnAfter = /*#__PURE__*/function () {
+        var _ref = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(_result) {
+          var results, promises;
+          return _regenerator.default.wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  // Run Data hooks.
+                  results = _this3.onAfterApply(_this3.args, _result), promises = (0, _isArray.default)(results) ? results.flat().filter(function (filtered) {
+                    return filtered instanceof _promise.default;
+                  }) : [];
+
+                  if (!promises.length) {
+                    _context.next = 4;
+                    break;
+                  }
+
+                  _context.next = 4;
+                  return _promise.default.all(promises);
+
+                case 4:
+                  if (_this3.isDataChanged()) {
+                    // TODO: Create Command-Base for Command-Document and apply it on after.
+                    $e.internal('document/save/set-is-modified', {
+                      status: true
+                    });
+                  } // For UI hooks.
+
+
+                  _this3.onAfterRun(_this3.args, _result);
+
+                case 6:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee);
+        }));
+
+        return function asyncOnAfter(_x) {
+          return _ref.apply(this, arguments);
+        };
+      }(); // TODO: Temp code determine if it's a jQuery deferred object.
+
+
+      if (result && 'object' === (0, _typeof2.default)(result) && result.promise && result.then && result.fail) {
+        result.fail(this.onCatchApply.bind(this));
+        result.done(onAfter);
+      } else if (result instanceof _promise.default) {
+        // Override initial result ( promise ) to await onAfter promises, first!.
+        return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
+          return _regenerator.default.wrap(function _callee2$(_context2) {
+            while (1) {
+              switch (_context2.prev = _context2.next) {
+                case 0:
+                  _context2.next = 2;
+                  return result.catch(_this3.onCatchApply.bind(_this3));
+
+                case 2:
+                  _context2.next = 4;
+                  return result.then(function (_result) {
+                    return asyncOnAfter(_result);
+                  });
+
+                case 4:
+                  return _context2.abrupt("return", result);
+
+                case 5:
+                case "end":
+                  return _context2.stop();
+              }
+            }
+          }, _callee2);
+        }))();
+      } else {
+        onAfter(result);
+      }
+
+      return result;
+    }
+    /**
+     * Run all the catch hooks.
+     *
+     * @param {Error} e
+     */
+
+  }, {
+    key: "runCatchHooks",
+    value: function runCatchHooks(e) {
+      $e.hooks.runDataCatch(this.currentCommand, this.args, e);
+      $e.hooks.runUICatch(this.currentCommand, this.args, e);
+    }
+    /**
+     * Function onBeforeRun.
+     *
+     * Called before run().
+     *
+     * @param [args={}]
+     */
+
+  }, {
+    key: "onBeforeRun",
+    value: function onBeforeRun() {
+      var args = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      $e.hooks.runUIBefore(this.currentCommand, args);
+    }
+    /**
+     * Function onAfterRun.
+     *
+     * Called after run().
+     *
+     * @param [args={}]
+     * @param [result={*}]
+     */
+
+  }, {
+    key: "onAfterRun",
+    value: function onAfterRun() {
+      var args = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      var result = arguments.length > 1 ? arguments[1] : undefined;
+      $e.hooks.runUIAfter(this.currentCommand, args, result);
+    }
+    /**
+     * Function onBeforeApply.
+     *
+     * Called before apply().
+     *
+     * @param [args={}]
+     */
+
+  }, {
+    key: "onBeforeApply",
+    value: function onBeforeApply() {
+      var args = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      $e.hooks.runDataDependency(this.currentCommand, args);
+    }
+    /**
+     * Function onAfterApply.
+     *
+     * Called after apply().
+     *
+     * @param [args={}]
+     * @param [result={*}]
+     */
+
+  }, {
+    key: "onAfterApply",
+    value: function onAfterApply() {
+      var args = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      var result = arguments.length > 1 ? arguments[1] : undefined;
+      return $e.hooks.runDataAfter(this.currentCommand, args, result);
+    }
+    /**
+     * Function onCatchApply.
+     *
+     * Called after apply() failed.
+     *
+     * @param {Error} e
+     */
+
+  }, {
+    key: "onCatchApply",
+    value: function onCatchApply(e) {
+      this.runCatchHooks(e);
+
+      _helpers.default.consoleError(e);
     }
   }], [{
     key: "getInstanceType",
     value: function getInstanceType() {
       return 'CommandBase';
     }
-  }]);
-  return CommandBase;
-}(_commandInfra.default);
-
-exports["default"] = CommandBase;
-
-/***/ }),
-
-/***/ "../modules/web-cli/assets/js/modules/command-callback.js":
-/*!****************************************************************!*\
-  !*** ../modules/web-cli/assets/js/modules/command-callback.js ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-var _Object$defineProperty = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-property */ "../node_modules/@babel/runtime-corejs2/core-js/object/define-property.js");
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime-corejs2/helpers/interopRequireDefault */ "../node_modules/@babel/runtime-corejs2/helpers/interopRequireDefault.js");
-
-_Object$defineProperty(exports, "__esModule", {
-  value: true
-});
-
-exports["default"] = void 0;
-
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/classCallCheck */ "../node_modules/@babel/runtime-corejs2/helpers/classCallCheck.js"));
-
-var _createClass2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/createClass */ "../node_modules/@babel/runtime-corejs2/helpers/createClass.js"));
-
-var _inherits2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/inherits */ "../node_modules/@babel/runtime-corejs2/helpers/inherits.js"));
-
-var _createSuper2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/createSuper */ "../node_modules/@babel/runtime-corejs2/helpers/createSuper.js"));
-
-var _commandBase = _interopRequireDefault(__webpack_require__(/*! ./command-base */ "../modules/web-cli/assets/js/modules/command-base.js"));
-
-/**
- * To support pure callbacks in the API(commands.js), to ensure they have registered with the proper context.
- */
-var CommandCallback = /*#__PURE__*/function (_CommandBase) {
-  (0, _inherits2.default)(CommandCallback, _CommandBase);
-
-  var _super = (0, _createSuper2.default)(CommandCallback);
-
-  function CommandCallback() {
-    (0, _classCallCheck2.default)(this, CommandCallback);
-    return _super.apply(this, arguments);
-  }
-
-  (0, _createClass2.default)(CommandCallback, [{
-    key: "apply",
-    value: function apply() {
-      var args = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-      return this.constructor.getCallback()(args);
-    }
-  }], [{
-    key: "getInstanceType",
-    value: function getInstanceType() {
-      return 'CommandCallback';
-    }
     /**
-     * Get original callback of the command.
+     * Get info of command.
      *
-     * Support pure callbacks ( Non command-base ).
+     * Use to provide 'extra' information about the command.
      *
-     * @returns {(function())}
+     * @returns {Object}
      */
 
   }, {
-    key: "getCallback",
-    value: function getCallback() {
-      return this.registerConfig.callback;
+    key: "getInfo",
+    value: function getInfo() {
+      return {};
     }
-  }]);
-  return CommandCallback;
-}(_commandBase.default);
+    /**
+     * Current component.
+     *
+     * @type {Component}
+     */
 
-exports["default"] = CommandCallback;
+  }]);
+  return CommandBase;
+}(_argsObject.default);
+
+exports["default"] = CommandBase;
 
 /***/ }),
 
@@ -8632,12 +8520,12 @@ var CommandData = /*#__PURE__*/function (_CommandBase) {
     key: "getRequestData",
     value: function getRequestData() {
       return {
+        component: this.component,
+        command: this.currentCommand,
         type: this.type,
         args: this.args,
         timestamp: new Date().getTime(),
-        component: this.component,
-        command: this.command,
-        endpoint: $e.data.commandToEndpoint(this.command, _helpers.default.cloneObject(this.args), this.constructor.getEndpointFormat())
+        endpoint: $e.data.commandToEndpoint(this.currentCommand, _helpers.default.cloneObject(this.args), this.constructor.getEndpointFormat())
       };
     }
   }, {
@@ -8841,272 +8729,6 @@ exports["default"] = CommandData;
 
 /***/ }),
 
-/***/ "../modules/web-cli/assets/js/modules/command-infra.js":
-/*!*************************************************************!*\
-  !*** ../modules/web-cli/assets/js/modules/command-infra.js ***!
-  \*************************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-var _Object$defineProperty = __webpack_require__(/*! @babel/runtime-corejs2/core-js/object/define-property */ "../node_modules/@babel/runtime-corejs2/core-js/object/define-property.js");
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime-corejs2/helpers/interopRequireDefault */ "../node_modules/@babel/runtime-corejs2/helpers/interopRequireDefault.js");
-
-_Object$defineProperty(exports, "__esModule", {
-  value: true
-});
-
-exports["default"] = void 0;
-
-var _freeze = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/core-js/object/freeze */ "../node_modules/@babel/runtime-corejs2/core-js/object/freeze.js"));
-
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/classCallCheck */ "../node_modules/@babel/runtime-corejs2/helpers/classCallCheck.js"));
-
-var _createClass2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/createClass */ "../node_modules/@babel/runtime-corejs2/helpers/createClass.js"));
-
-var _inherits2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/inherits */ "../node_modules/@babel/runtime-corejs2/helpers/inherits.js"));
-
-var _createSuper2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/createSuper */ "../node_modules/@babel/runtime-corejs2/helpers/createSuper.js"));
-
-var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/defineProperty */ "../node_modules/@babel/runtime-corejs2/helpers/defineProperty.js"));
-
-var _argsObject = _interopRequireDefault(__webpack_require__(/*! elementor-assets-js/modules/imports/args-object */ "../assets/dev/js/modules/imports/args-object.js"));
-
-var CommandInfra = /*#__PURE__*/function (_ArgsObject) {
-  (0, _inherits2.default)(CommandInfra, _ArgsObject);
-
-  var _super = (0, _createSuper2.default)(CommandInfra);
-
-  /**
-   * Function constructor().
-   *
-   * Create Commands Base.
-   *
-   * @param [args={}]
-   */
-  function CommandInfra() {
-    var _this;
-
-    var args = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    (0, _classCallCheck2.default)(this, CommandInfra);
-    _this = _super.call(this, args);
-
-    if (!_this.constructor.registerConfig) {
-      throw RangeError('Doing it wrong: Each command type should have `registerConfig`.');
-    } // Acknowledge self about which command it run.
-
-
-    _this.command = _this.constructor.getCommand(); // Assign instance of current component.
-
-    _this.component = _this.constructor.getComponent(); // Who ever need do something before without `super` the constructor can use `initialize` method.
-
-    _this.initialize(args); // Refresh args, maybe the changed via `initialize`.
-
-
-    args = _this.args; // Validate args before run.
-
-    _this.validateArgs(args);
-
-    return _this;
-  }
-  /**
-   * Function initialize().
-   *
-   * Initialize command, called after construction.
-   *
-   * @param [args={}]
-   */
-
-
-  (0, _createClass2.default)(CommandInfra, [{
-    key: "currentCommand",
-    get: // TODO - Remove backwards compatibility.
-    function get() {
-      elementorCommon.helpers.softDeprecated('this.currentCommand', '3.7.0', 'this.command');
-      return this.command;
-    }
-  }, {
-    key: "initialize",
-    value: function initialize() {
-      var args = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    } // eslint-disable-line no-unused-vars
-
-    /**
-     * Function validateArgs().
-     *
-     * Validate command arguments.
-     *
-     * @param [args={}]
-     */
-
-  }, {
-    key: "validateArgs",
-    value: function validateArgs() {
-      var args = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    } // eslint-disable-line no-unused-vars
-
-    /**
-     * Function apply().
-     *
-     * Do the actual command.
-     *
-     * @param [args={}]
-     *
-     * @returns {*}
-     */
-
-  }, {
-    key: "apply",
-    value: function apply() {
-      var args = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-      // eslint-disable-line no-unused-vars
-      elementorModules.ForceMethodImplementation();
-    }
-    /**
-     * Function run().
-     *
-     * Run command with history & hooks.
-     *
-     * @returns {*}
-     */
-
-  }, {
-    key: "run",
-    value: function run() {
-      return this.apply(this.args);
-    }
-    /**
-     * Function onBeforeRun.
-     *
-     * Called before run().
-     *
-     * @param [args={}]
-     */
-
-  }, {
-    key: "onBeforeRun",
-    value: function onBeforeRun() {
-      var args = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    } // eslint-disable-line no-unused-vars
-
-    /**
-     * Function onAfterRun.
-     *
-     * Called after run().
-     *
-     * @param [args={}]
-     * @param [result={*}]
-     */
-
-  }, {
-    key: "onAfterRun",
-    value: function onAfterRun() {
-      var args = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-      var result = arguments.length > 1 ? arguments[1] : undefined;
-    } // eslint-disable-line no-unused-vars
-
-    /**
-     * Function onBeforeApply.
-     *
-     * Called before apply().
-     *
-     * @param [args={}]
-     */
-
-  }, {
-    key: "onBeforeApply",
-    value: function onBeforeApply() {
-      var args = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    } // eslint-disable-line no-unused-vars
-
-    /**
-     * Function onAfterApply.
-     *
-     * Called after apply().
-     *
-     * @param [args={}]
-     * @param [result={*}]
-     */
-
-  }, {
-    key: "onAfterApply",
-    value: function onAfterApply() {
-      var args = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-      var result = arguments.length > 1 ? arguments[1] : undefined;
-    } // eslint-disable-line no-unused-vars
-
-    /**
-     * Function onCatchApply.
-     *
-     * Called after apply() failed.
-     *
-     * @param {Error} e
-     */
-
-  }, {
-    key: "onCatchApply",
-    value: function onCatchApply(e) {} // eslint-disable-line no-unused-vars
-
-  }], [{
-    key: "getInstanceType",
-    value:
-    /**
-     * @type {Object}
-     */
-    function getInstanceType() {
-      return 'CommandInfra';
-    }
-    /**
-     * Get info of command.
-     *
-     * Use to provide 'extra' information about the command.
-     *
-     * @returns {Object}
-     */
-
-  }, {
-    key: "getInfo",
-    value: function getInfo() {
-      return {};
-    }
-    /**
-     * Self command name.
-     *
-     * @returns {string}
-     */
-
-  }, {
-    key: "getCommand",
-    value: function getCommand() {
-      return this.registerConfig.command;
-    }
-    /**
-     * Self component.
-     *
-     * @returns {ComponentBase}
-     */
-
-  }, {
-    key: "getComponent",
-    value: function getComponent() {
-      return this.registerConfig.component;
-    }
-  }, {
-    key: "setRegisterConfig",
-    value: function setRegisterConfig(config) {
-      this.registerConfig = (0, _freeze.default)(config);
-    }
-  }]);
-  return CommandInfra;
-}(_argsObject.default);
-
-exports["default"] = CommandInfra;
-(0, _defineProperty2.default)(CommandInfra, "registerConfig", null);
-
-/***/ }),
-
 /***/ "../modules/web-cli/assets/js/modules/command-internal-base.js":
 /*!*********************************************************************!*\
   !*** ../modules/web-cli/assets/js/modules/command-internal-base.js ***!
@@ -9136,9 +8758,6 @@ var _createSuper2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtim
 
 var _commandBase = _interopRequireDefault(__webpack_require__(/*! ./command-base */ "../modules/web-cli/assets/js/modules/command-base.js"));
 
-/**
- * @name $e.modules.CommandInternalBase
- */
 var CommandInternalBase = /*#__PURE__*/function (_CommandBase) {
   (0, _inherits2.default)(CommandInternalBase, _CommandBase);
 
@@ -9416,10 +9035,6 @@ var _inherits2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-c
 
 var _createSuper2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/helpers/createSuper */ "../node_modules/@babel/runtime-corejs2/helpers/createSuper.js"));
 
-var _commandBase = _interopRequireDefault(__webpack_require__(/*! elementor-api/modules/command-base */ "../modules/web-cli/assets/js/modules/command-base.js"));
-
-var _commandCallback = _interopRequireDefault(__webpack_require__(/*! elementor-api/modules/command-callback */ "../modules/web-cli/assets/js/modules/command-callback.js"));
-
 var _toolkit = __webpack_require__(/*! @reduxjs/toolkit */ "../node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
 
 var _module = _interopRequireDefault(__webpack_require__(/*! elementor-assets-js/modules/imports/module.js */ "../assets/dev/js/modules/imports/module.js"));
@@ -9642,34 +9257,10 @@ var ComponentBase = /*#__PURE__*/function (_Module) {
     value: function getData() {
       return this.data;
     }
-    /**
-     * @param {string} command
-     * @param {(function()|typeof CommandInfra)} context
-     * @param commandsAPI
-     */
-
   }, {
     key: "registerCommand",
-    value: function registerCommand(command, context) {
-      var commandsAPI = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : $e.commands;
-      var fullCommand = this.getNamespace() + '/' + command,
-          instanceType = context.getInstanceType ? context.getInstanceType() : false,
-          registerConfig = {
-        command: fullCommand,
-        component: this
-      }; // Support pure callback.
-
-      if (!instanceType) {
-        if ($e.devTools) {
-          $e.devTools.log.warn("Attach command-callback, on command: '".concat(fullCommand, "', context is unknown type."));
-        }
-
-        registerConfig.callback = context;
-        context = _commandCallback.default;
-      }
-
-      context.setRegisterConfig(registerConfig);
-      commandsAPI.register(this, command, context);
+    value: function registerCommand(command, callback) {
+      $e.commands.register(this, command, callback);
     }
     /**
      * @param {HookBase} instance
@@ -9679,11 +9270,6 @@ var ComponentBase = /*#__PURE__*/function (_Module) {
     key: "registerHook",
     value: function registerHook(instance) {
       return instance.register();
-    }
-  }, {
-    key: "registerCommandInternal",
-    value: function registerCommandInternal(command, context) {
-      this.registerCommand(command, context, $e.commandsInternal);
     }
     /**
      * Register a UI state.
@@ -9717,14 +9303,19 @@ var ComponentBase = /*#__PURE__*/function (_Module) {
       $e.store.register(id, slice);
     }
   }, {
+    key: "registerCommandInternal",
+    value: function registerCommandInternal(command, callback) {
+      $e.commandsInternal.register(this, command, callback);
+    }
+  }, {
     key: "registerRoute",
     value: function registerRoute(route, callback) {
       $e.routes.register(this, route, callback);
     }
   }, {
     key: "registerData",
-    value: function registerData(command, context) {
-      this.registerCommand(command, context, $e.data);
+    value: function registerData(command, callback) {
+      $e.data.register(this, command, callback);
     }
   }, {
     key: "unregisterRoute",
@@ -9883,11 +9474,6 @@ var ComponentBase = /*#__PURE__*/function (_Module) {
         return (offset > 0 ? '-' : '') + match.toLowerCase();
       });
     }
-    /**
-     * @param {Object.<string, CommandBase>} commandsFromImport
-     * @returns {{}} imported commands
-     */
-
   }, {
     key: "importCommands",
     value: function importCommands(commandsFromImport) {
@@ -9902,7 +9488,13 @@ var ComponentBase = /*#__PURE__*/function (_Module) {
 
         var command = _this5.normalizeCommandName(className);
 
-        commands[command] = Class;
+        commands[command] = function (args) {
+          return new Class(args).run();
+        }; // TODO: Temporary code, remove after merge with 'require-commands-base' branch.
+        // should not return callback, but Class or Instance without run ( gain performance ).
+
+
+        $e.commands.classes[_this5.getNamespace() + '/' + command] = Class;
       });
       return commands;
     }
@@ -11283,18 +10875,6 @@ module.exports = function defineProperty(it, key, desc) {
 
 __webpack_require__(/*! ../../modules/es7.object.entries */ "../node_modules/core-js/library/modules/es7.object.entries.js");
 module.exports = __webpack_require__(/*! ../../modules/_core */ "../node_modules/core-js/library/modules/_core.js").Object.entries;
-
-
-/***/ }),
-
-/***/ "../node_modules/core-js/library/fn/object/freeze.js":
-/*!***********************************************************!*\
-  !*** ../node_modules/core-js/library/fn/object/freeze.js ***!
-  \***********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-__webpack_require__(/*! ../../modules/es6.object.freeze */ "../node_modules/core-js/library/modules/es6.object.freeze.js");
-module.exports = __webpack_require__(/*! ../../modules/_core */ "../node_modules/core-js/library/modules/_core.js").Object.freeze;
 
 
 /***/ }),
@@ -14122,25 +13702,6 @@ $export($export.S + $export.F * !__webpack_require__(/*! ./_descriptors */ "../n
 var $export = __webpack_require__(/*! ./_export */ "../node_modules/core-js/library/modules/_export.js");
 // 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
 $export($export.S + $export.F * !__webpack_require__(/*! ./_descriptors */ "../node_modules/core-js/library/modules/_descriptors.js"), 'Object', { defineProperty: __webpack_require__(/*! ./_object-dp */ "../node_modules/core-js/library/modules/_object-dp.js").f });
-
-
-/***/ }),
-
-/***/ "../node_modules/core-js/library/modules/es6.object.freeze.js":
-/*!********************************************************************!*\
-  !*** ../node_modules/core-js/library/modules/es6.object.freeze.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-// 19.1.2.5 Object.freeze(O)
-var isObject = __webpack_require__(/*! ./_is-object */ "../node_modules/core-js/library/modules/_is-object.js");
-var meta = __webpack_require__(/*! ./_meta */ "../node_modules/core-js/library/modules/_meta.js").onFreeze;
-
-__webpack_require__(/*! ./_object-sap */ "../node_modules/core-js/library/modules/_object-sap.js")('freeze', function ($freeze) {
-  return function freeze(it) {
-    return $freeze && isObject(it) ? $freeze(meta(it)) : it;
-  };
-});
 
 
 /***/ }),
