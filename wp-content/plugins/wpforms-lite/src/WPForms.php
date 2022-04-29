@@ -437,12 +437,3 @@ namespace {
 	 */
 	class_alias( 'WPForms\WPForms', 'WPForms' );
 }
-
-// /!Added Lazyload
-// function LazyWPF() {
-// 	$plugin_url = plugin_dir_url( __FILE__ );
-
-// wp_enqueue_style( 'style',  $plugin_url . "css/styles.css");
-// }
-
-// add_action( 'admin_print_styles', 'LazyWPF' );
