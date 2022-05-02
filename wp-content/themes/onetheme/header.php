@@ -9,7 +9,7 @@
 <meta name="description" content="We provide an end-to-end solution for brands to do e-commerce business. Take your online selling activities to the next level by leveraging on our integrated technologies to give you seamless and efficient operations.">
 
 <!-- Priority -->
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.min.css"/>
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css"/>
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
 <!-- jquery -->
