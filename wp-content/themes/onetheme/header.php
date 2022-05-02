@@ -43,7 +43,7 @@
 				<li class="item"><a href="<?=bloginfo('url');?>/ecom-auto/">ECOMMERCE AUTOMATION</a></li>
 				<li class="item"><a href="<?=bloginfo('url');?>/#namedSolutions">SOLUTIONS</a></li>
 				<li class="item"><a href="#">CONTACT US</a></li>
-				<li class="item son"><a class="sona" href="#">SELL ONLINE <br> NOW! <i class="fa-solid fa-arrow-right-long"></i> </a></li>
+				<li class="item son"><a class="sona" href="#">SELL ONLINE <br> NOW!</a></li>
 			</ul>
 		</nav>
 	</header>

@@ -2579,7 +2579,7 @@ nav ul li a{
 
 .son:hover{
   background-color: #0247be;
-  outline: .20em solid #F04436;
+  /* outline: .20em solid #F04436; */
 
 }
 .son .scrolled{
@@ -2769,7 +2769,7 @@ nav ul li a{
   }
 
 
-.son i {
+/* .son i {
   font-family: FontAwesome;
   line-height: 1;
   font-size: 1.1rem;
@@ -2804,7 +2804,7 @@ nav ul li a{
     -ms-transform: translateX(-100%);
     -o-transform: translateX(-100%);
 }
-}
+} */
 
 
 }
