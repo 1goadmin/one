@@ -3,7 +3,7 @@
 		<section class="container ft" background-color: #e7e7e7; display: flexbox;">
 			<div class="ft-col">
 				<ul class="contacts">
-					<li class="ft-logo"><a href="#" aria-label="footerlogo"><img src="<?=bloginfo('url');?>/wp-content/themes/onetheme/img/logointl.svg" alt="logo"
+					<li class="ft-logo"><a href="#" aria-label="footerlogo"><img src="<?=bloginfo('url');?>/wp-content/themes/onetheme/img/logintl.svg" alt="logo"
 								style="width: 4rem;"></a>
 					</li>
 					<li>
