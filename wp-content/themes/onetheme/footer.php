@@ -8,7 +8,7 @@
 					</li>
 					<li>
 						<p class="footer-company-about">
-						1.com is your end-to-end ecommerce solution provider.  Whether you are just starting your
+						1eCom is your end-to-end ecommerce solution provider.  Whether you are just starting your
 						online store, expanding it to breach new channels, or putting up a customer support facility, we provide
 						you the right tools and technology that fit your needs and grow your  business.
 						</p>
