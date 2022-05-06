@@ -8,13 +8,13 @@
 					</li>
 					<li>
 						<p class="footer-company-about">
-						1eCom is your end-to-end ecommerce solution provider.  Whether you are just starting your
+						1ecom is your end-to-end ecommerce solution provider.  Whether you are just starting your
 						online store, expanding it to breach new channels, or putting up a customer support facility, we provide
 						you the right tools and technology that fit your needs and grow your  business.
 						</p>
 					</li>
 					<li>
-						<p class="footer-company-name">© 2022 Onedotcom.ph </p>
+						<p class="footer-company-name">© 2022 1ecom.ph</p>
 					</li>
 				</ul>
 			</div>
