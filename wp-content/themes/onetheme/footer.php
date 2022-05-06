@@ -19,7 +19,7 @@
 				</ul>
 			</div>
 			<div class="ft-col">
-				<span class="ft-title" style="display:block; border-bottom: 2px solid #fff; padding: 0 0 .2rem 0; margin: 0 7rem 1.5rem 3rem;">What We Do</span>
+				<span class="ft-title" style="display:block; padding: 0 0 .2rem 0; margin: 0 7rem 1.1rem 3rem;">What We Do</span>
 				<ul class="contacts" style="margin-left: 2.9rem;">
 					<li><a href="/onedotcom/#about-us" aria-label="about">Company</a></li>
 					<li><a href="/onedotcom/ecomm-auto/" aria-label="ecommerce automation">Ecommerce Automation</a></li>
@@ -29,7 +29,7 @@
 
 			</div>
 			<div class="ft-col" >
-				<span class=" ft-title" style="display:block; border-bottom: 2px solid #fff; padding: 0 0 .2rem 0; margin: 0 6rem 1.5rem 3rem;">Connect With Us</span>
+				<span class=" ft-title" style="display:block; padding: 0 0 .2rem 0; margin: 0 6rem 1.1rem 3rem;">Connect With Us</span>
 				<ul >
 					<li>
 						<div class="contacts ft-contacts">
