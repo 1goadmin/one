@@ -21,10 +21,10 @@
 			<div class="ft-col">
 				<span class="ft-title" style="display:block; padding: 0 0 .2rem 0; margin: 0 7rem 1.1rem 3rem;">What We Do</span>
 				<ul class="contacts" style="margin-left: 2.9rem;">
-					<li><a href="/onedotcom/#about-us" aria-label="about">Company</a></li>
-					<li><a href="/onedotcom/ecomm-auto/" aria-label="ecommerce automation">Ecommerce Automation</a></li>
-					<li><a href="/onedotcom/#ecomm-sevices" aria-label="services">Services</a></li>
-					<li><a href="/onedotcom/#contact" aria-label="contact us">Contact Us</a></li>
+					<li><a href="<?=bloginfo('url');?>/company/" aria-label="about">Company</a></li>
+					<li><a href="<?=bloginfo('url');?>/ecom-auto/" aria-label="ecommerce automation">Ecommerce Automation</a></li>
+					<li><a href="<?=bloginfo('url');?>/#namedSolutions" aria-label="services">Services</a></li>
+					<li><a href="<?=bloginfo('url');?>/#namedContacts" aria-label="contact us">Contact Us</a></li>
 				</ul>
 
 			</div>
