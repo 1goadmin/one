@@ -35,9 +35,8 @@
 						<div class="contacts ft-contacts">
 							<a href="#" id="map" aria-label="map" style="margin-top:.4rem;"><i class="fa fa-map-marker social-icons"
 									style="border-radius: 20px; text-align: center;"></i></a>
-							<a href="#" id="address" aria-label="address">Las Pinas
-								Cargo Complex
-								J. Aguilar avenue,<br> Talon Uno
+							<a href="#" id="address" aria-label="address">
+								Las Pinas Cargo Complex J. Aguilar Avenue<br>Talon Uno,
 								Las Pinas City, 1747,
 								Philippines
 							</a>
