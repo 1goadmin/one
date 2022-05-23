@@ -13,9 +13,6 @@
 						you the right tools and technology that fit your needs and grow your  business.
 						</p>
 					</li>
-					<li>
-						<p class="footer-company-name">© 2022 1ecom.ph</p>
-					</li>
 				</ul>
 			</div>
 			<div class="ft-col">
@@ -33,9 +30,9 @@
 				<ul >
 					<li>
 						<div class="contacts ft-contacts">
-							<a href="#" id="map" aria-label="map" style="margin-top:.4rem;"><i class="fa fa-map-marker social-icons"
+							<a href="https://www.google.com/maps/place/In1Go+Technologies+Inc./@14.4481538,120.9922245,17z/data=!4m12!1m6!3m5!1s0x3397cf04d69589b7:0x378e5251d103adb7!2sLAS+PINAS+CARGO+COMPLEX!8m2!3d14.4481486!4d120.9944132!3m4!1s0x0:0x4b64607b8f930152!8m2!3d14.447798!4d120.9948852" id="map" aria-label="map" target="_blank" style="margin-top:.4rem;"><i class="fa fa-map-marker social-icons"
 									style="border-radius: 20px; text-align: center;"></i></a>
-							<a href="#" id="address" aria-label="address">
+							<a href="https://www.google.com/maps/place/In1Go+Technologies+Inc./@14.4481538,120.9922245,17z/data=!4m12!1m6!3m5!1s0x3397cf04d69589b7:0x378e5251d103adb7!2sLAS+PINAS+CARGO+COMPLEX!8m2!3d14.4481486!4d120.9944132!3m4!1s0x0:0x4b64607b8f930152!8m2!3d14.447798!4d120.9948852" id="address" aria-label="address" target="_blank">
 								Las Pinas Cargo Complex J. Aguilar Avenue<br>Talon Uno,
 								Las Pinas City, 1747,
 								Philippines
@@ -44,34 +41,33 @@
 					</li>
 					<li>
 						<div class="contacts ft-contacts">
-							<a href="#" aria-label="phone" style="margin-top:.5rem;"> <i class="fa fa-phone social-icons"
+							<a href="tel:+63288143209" aria-label="phone" style="margin-top:.5rem;"> <i class="fa fa-phone social-icons"
 									style="border-radius: 20px; padding: .7em"></i></a>
 							<p>
-								<a href="#" id="number1" aria-label="contact number1">+63 2 8814 3209</a>
+								<a href="tel:+63288143209" id="number1" aria-label="contact number1">+63 2 8814 3209</a>
 								<br>
-								<a href="#" id="number2" aria-label="contact number2">+63 2 8511 8618</a>
+								<a href="tel:+63285118618" id="number2" aria-label="contact number2">+63 2 8511 8618</a>
 							</p>
 						</div>
 						<div class="contacts ft-contacts" >
-							<a href="#" aria-label="email address" id="email"> <i class="fa fa-envelope social-icons"
+							<a href="mailto:customercare@in1go.com.ph" aria-label="email address" id="email"> <i class="fa fa-envelope social-icons"
 									style="border-radius: 20px; padding: .7em; "></i></a>
-							<a href="#" id="email">customercare@in1go.com.ph</a>
+							<a href="mailto:customercare@in1go.com.ph" id="email">customercare@in1go.com.ph</a>
 						</div>
 					</li>
 					<li>
 						<div class="contacts ft-contacts solicons" style="margin: 2.4rem 0 0 3rem; gap : 20px!important;">
-							<a href="#" aria-label="facebook profile"><i class="fab fa-facebook-f social-icons"></i></a>
-							<a href="#" aria-label="instagram profile"><i class="fab fa-instagram social-icons"></i></a>
-							<a href="#" aria-label="linkedin profile"><i
+							<a href="https://www.facebook.com/in1gotech/" aria-label="facebook profile"  target="_blank"><i class="fab fa-facebook-f social-icons"></i></a>
+							<a href="https://www.linkedin.com/company/in1gotech" target="_blank" aria-label="linkedin profile"><i
 									class="fab fa-linkedin-in social-icons"></i></a>
-							<a href="#" aria-label="youtube profile"><i class="fab fa-youtube social-icons"></i></a>
+							<a href="https://www.youtube.com/channel/UCWu79HfXHYax8e-wnLhJU3g/videos" target="_blank" aria-label="youtube profile"><i class="fab fa-youtube social-icons"></i></a>
 						</div>
 					</li>
 				</ul>
 			</div>
 		</section>
-		<h6 class="toc"><a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a>
-		</h6>
+		<h6 class="toc"><span style="font-weight: 500;">Copyright © 2022 1ecom.ph</span> | <a href="https://in1gotech.com/privacy-policy/"target="_blank">Privacy Policy</a>
+  </h6>
 	</footer>
 	<style>
 	</style>
